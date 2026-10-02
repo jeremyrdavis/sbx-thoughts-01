@@ -1,0 +1,23 @@
+package io.arrogantprogrammer.thoughts.domain;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface ThoughtRepository {
+
+    void save(Thought thought);
+
+    boolean incrementThumbsUpIfApproved(ThoughtId id);
+
+    boolean incrementThumbsDownIfApproved(ThoughtId id);
+
+    boolean delete(ThoughtId id);
+
+    Optional<Thought> findById(ThoughtId id);
+
+    Optional<Thought> findRandomApproved();
+
+    List<Thought> page(int pageIndex, int pageSize);
+
+    long count();
+}
